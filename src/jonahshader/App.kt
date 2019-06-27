@@ -6,8 +6,8 @@ import jonahshader.environment.generateTerrain
 import processing.core.PApplet
 
 class App : PApplet() {
-    private val tileSize = 32
-    private val world = World(1920 / tileSize, 1080 / tileSize)
+    private val tileSize = 8
+    private val world = World(640 / tileSize, 360 / tileSize)
     private lateinit var renderer: WorldRenderer
 
     override fun settings() {
@@ -18,6 +18,8 @@ class App : PApplet() {
     override fun setup() {
         renderer = WorldRenderer(world, this)
         generateTerrain(world.dirtLayer)
+
+        frameRate(15f)
     }
 
     override fun draw() {
