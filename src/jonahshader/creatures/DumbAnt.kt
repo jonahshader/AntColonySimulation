@@ -7,25 +7,39 @@ class DumbAnt(x: Int, y: Int, private val collisionLayer: Layer) : CreatureMovem
     private var hasDirtBlock = false
 
     init {
-        energy = 10
+        energy = 100000
     }
 
     override fun run() {
-        tryMove(1, 0)
         if (!collisionLayer.readSpace(x, y - 1, true))
             y--
 
+        var horizontal = Math.random() > 0.5
+        var flip = Math.random() > 0.5
+
+        var changeX = if (horizontal) if (flip)  1 else -1 else 0
+        var changeY = if (!horizontal) if (flip) 1 else -1 else 0
+
         if (!hasDirtBlock) {
-            if (collisionLayer.readSpace(x, y - 1, false)) {
-                collisionLayer.writeSpace(x, y - 1, false)
+            if (collisionLayer.readSpace(x + changeX, y + changeY, false)) {
+                collisionLayer.writeSpace(x + changeX, y + changeY, false)
                 hasDirtBlock = true
             }
         } else {
-            if (!collisionLayer.readSpace(x, y + 1, true)) {
-                collisionLayer.writeSpace(x, y + 1, true)
+            if (!collisionLayer.readSpace(x + changeX, y + changeY, true)) {
+                collisionLayer.writeSpace(x + changeX, y + changeY, true)
                 hasDirtBlock = false
             }
         }
+
+        horizontal = Math.random() > 0.5
+        flip = Math.random() > 0.5
+
+        changeX = if (horizontal) if (flip)  1 else -1 else 0
+        changeY = if (!horizontal) if (flip) 1 else -1 else 0
+
+        tryMove(changeX, changeY)
+
     }
 
     override fun draw(graphics: PGraphics) {

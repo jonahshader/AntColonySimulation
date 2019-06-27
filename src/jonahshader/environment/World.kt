@@ -10,7 +10,7 @@ class World(val width: Int, val height: Int) {
     var creatures = arrayOf<PhysicalCreature>()
 
     init {
-        for (i in 1..12)
+        for (i in 1..250)
             creatures += DumbAnt((Math.random() * width).toInt(), dirtLayer.height - 1, dirtLayer)
     }
 

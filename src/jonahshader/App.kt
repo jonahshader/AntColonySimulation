@@ -19,14 +19,15 @@ class App : PApplet() {
         renderer = WorldRenderer(world, this)
         generateTerrain(world.dirtLayer)
 
-        frameRate(15f)
+        frameRate(60f)
     }
 
     override fun draw() {
         background(255)
         scale(1f, -1f)
         translate(0f, -height.toFloat())
-        world.run()
+        for (i in 1..1)
+            world.run()
         renderer.renderToScreen()
     }
 

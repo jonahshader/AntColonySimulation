@@ -1,5 +1,5 @@
 package jonahshader.environment
 
 enum class TileType {
-    DIRT, GRASS, FOOD
+    NOTHING, AIR, DIRT, GRASS, FOOD
 }
