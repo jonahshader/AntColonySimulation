@@ -1,13 +1,16 @@
-package jonahshader.creatures
+package jonahshader.creatures.ants
 
+import jonahshader.creatures.CreatureMovement
+import jonahshader.creatures.PhysicalCreature
 import jonahshader.environment.Layer
 import processing.core.PGraphics
 
-class DumbAnt(x: Int, y: Int, private val collisionLayer: Layer) : CreatureMovement(x, y, collisionLayer), PhysicalCreature {
+class HorizontalDiggerAnt(x: Int, y: Int, private val collisionLayer: Layer) : CreatureMovement(x, y, collisionLayer),
+    PhysicalCreature {
     private var hasDirtBlock = false
 
     init {
-        energy = 100000
+        energy = 100000000000
     }
 
     override fun run() {
@@ -26,6 +29,9 @@ class DumbAnt(x: Int, y: Int, private val collisionLayer: Layer) : CreatureMovem
         var changeX = if (horizontal) if (flip)  1 else -1 else 0
         var changeY = if (!horizontal) if (flip) 1 else -1 else 0
 
+//        changeX = 0
+        changeY = 0
+
         if (!hasDirtBlock) {
             if (collisionLayer.readSpace(x + changeX, y + changeY, false)) {
                 collisionLayer.writeSpace(x + changeX, y + changeY, false)
@@ -38,7 +44,7 @@ class DumbAnt(x: Int, y: Int, private val collisionLayer: Layer) : CreatureMovem
             }
         }
 
-        horizontal = Math.random() > 0.5
+        horizontal = Math.random() < 0.99
         flip = Math.random() > 0.5
 
         changeX = if (horizontal) if (flip)  1 else -1 else 0
@@ -49,7 +55,7 @@ class DumbAnt(x: Int, y: Int, private val collisionLayer: Layer) : CreatureMovem
     }
 
     override fun draw(graphics: PGraphics) {
-        graphics.stroke(0f, 0f, 0f)
+        graphics.stroke(200f, 0f, 0f)
         graphics.strokeWeight(1f)
         graphics.point(x.toFloat(), y.toFloat())
     }

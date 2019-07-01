@@ -4,7 +4,7 @@ import jonahshader.environment.Layer
 import kotlin.math.absoluteValue
 
 open class CreatureMovement(var x: Int, var y: Int, private val collisionLayer: Layer) {
-    var energy = 0
+    var energy: Long = 0
 
     /**
      * exchanges energy between this and otherCreature

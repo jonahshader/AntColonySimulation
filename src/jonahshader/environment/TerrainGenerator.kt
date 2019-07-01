@@ -2,7 +2,6 @@ package jonahshader.environment
 
 
 fun generateTerrain(terrainLayer: Layer) {
-    // TODO: figure out how to do this in a 2d array with tiers of noise to make brownian noise
     var noise1 = generateNoiseArray(terrainLayer.width)
 
     for (i in 0..1) {
