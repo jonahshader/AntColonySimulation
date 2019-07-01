@@ -11,8 +11,14 @@ class DumbAnt(x: Int, y: Int, private val collisionLayer: Layer) : CreatureMovem
     }
 
     override fun run() {
-        if (!collisionLayer.readSpace(x, y - 1, true))
+        if (!collisionLayer.readSpace(x - 1, y, true) &&
+            !collisionLayer.readSpace(x + 1, y, true) &&
+            !collisionLayer.readSpace(x, y - 1, true) &&
+            !collisionLayer.readSpace(x - 1, y - 1, true) &&
+            !collisionLayer.readSpace(x + 1, y - 1, true)) {
             y--
+        }
+
 
         var horizontal = Math.random() > 0.5
         var flip = Math.random() > 0.5

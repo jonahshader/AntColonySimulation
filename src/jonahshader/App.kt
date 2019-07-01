@@ -26,7 +26,7 @@ class App : PApplet() {
         background(255)
         scale(1f, -1f)
         translate(0f, -height.toFloat())
-        for (i in 1..1)
+        for (i in 1..100)
             world.run()
         renderer.renderToScreen()
     }
