@@ -29,9 +29,9 @@ class VerticalDiggerAnt(x: Int, y: Int, private val collisionLayer: Layer) : Cre
         var changeX = if (horizontal) if (flip)  1 else -1 else 0
         var changeY = if (!horizontal) if (flip) 1 else -1 else 0
 
-        changeX = 0
 
         if (!hasDirtBlock) {
+            changeX = 0
             if (collisionLayer.readSpace(x + changeX, y + changeY, false)) {
                 collisionLayer.writeSpace(x + changeX, y + changeY, false)
                 hasDirtBlock = true
@@ -43,7 +43,7 @@ class VerticalDiggerAnt(x: Int, y: Int, private val collisionLayer: Layer) : Cre
             }
         }
 
-        horizontal = Math.random() < 0.99
+        horizontal = Math.random() < 0.1
         flip = Math.random() > 0.5
 
         changeX = if (horizontal) if (flip)  1 else -1 else 0

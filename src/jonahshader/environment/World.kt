@@ -18,12 +18,12 @@ class World(val width: Int, val height: Int) {
                 dirtLayer.height - 1,
                 dirtLayer
             )
-        for (i in 1..25)
-            creatures += HorizontalDiggerAnt(
-                (Math.random() * width).toInt(),
-                dirtLayer.height - 1,
-                dirtLayer
-            )
+//        for (i in 1..25)
+//            creatures += HorizontalDiggerAnt(
+//                (Math.random() * width).toInt(),
+//                dirtLayer.height - 1,
+//                dirtLayer
+//            )
         for (i in 1..50)
             creatures += ClimberAnt(
                 (Math.random() * width).toInt(),

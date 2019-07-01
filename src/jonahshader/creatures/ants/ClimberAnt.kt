@@ -46,7 +46,7 @@ class ClimberAnt(x: Int, y: Int, private val collisionLayer: Layer) : CreatureMo
         flip = Math.random() < 0.5
 
         changeX = if (horizontal) if (flip)  1 else -1 else 0
-        changeY =  if (Math.random() < 0.125) 1 else 0
+        changeY =  if (Math.random() < 0.25) 1 else 0
 
         tryMove(changeX, changeY)
 

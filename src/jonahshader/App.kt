@@ -6,7 +6,7 @@ import jonahshader.environment.generateTerrain
 import processing.core.PApplet
 
 class App : PApplet() {
-    private val tileSize = 6
+    private val tileSize = 4
     private val world = World(640 / tileSize, 360 / tileSize)
     private lateinit var renderer: WorldRenderer
 
@@ -26,7 +26,7 @@ class App : PApplet() {
         background(255)
         scale(1f, -1f)
         translate(0f, -height.toFloat())
-        for (i in 1..1)
+        for (i in 1..100)
             world.run()
         renderer.renderToScreen()
     }
